@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="feed">
+    <img src="assets/cam.png" alt="cam-logo" *ngIf="!isLoading && !showVideo" />
+
+    <div class="loader" *ngIf="isLoading"></div>
+
+    <div>
+      <video
+        #videoElement
+        id="video"
+        autoplay
+        [style.display]="isDetecting ? 'none' : 'block'"
+      ></video>
+    </div>
+
+    <canvas
+      #canvasElement
+      id="canvas"
+      [style.display]="isDetecting ? 'block' : 'none'"
+      [width]="videoElement.videoWidth"
+      [height]="videoElement.videoHeight"
+    ></canvas>
+  </div>
+
+  <button (click)="startCamera()" *ngIf="!isLoading && !showVideo">
+    Begin
+  </button>
+
+  <label *ngIf="showVideo" class="toggle-switch">
+    <input
+      type="checkbox"
+      [(ngModel)]="isDetecting"
+      (change)="toggleDetection()"
+    />
+    <div class="toggle-switch-background">
+      <div
+        class="toggle-switch-handle"
+        [ngClass]="{ active: isDetecting }"
+      ></div>
+    </div>
+  </label>
+
+  <button (click)="stopCamera()" id="red" *ngIf="showVideo">Stop</button>
+</div>
