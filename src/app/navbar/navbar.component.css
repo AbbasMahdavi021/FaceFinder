@@ -6,6 +6,10 @@
   margin-bottom: 20px;
 }
 
+.navbar img {
+  width: 140px;
+}
+
 .btn {
   display: grid;
   place-items: center;

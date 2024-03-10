@@ -1,7 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "San Francisco";
+  font-style: normal;
+  font-weight: 400;
+  src: local(".SFNSText-Regular"), local(".HelveticaNeueDeskInterface-Regular"),
+    local(".LucidaGrandeUI"), local("Arial");
+}
+
 h1 {
   color: #49bd0f;
-  font-family: "Raleway", sans-serif;
+  font-family: "San Francisco", sans-serif;
   font-size: min(10vw, 56px);
   font-weight: 800;
   line-height: 72px;
@@ -11,8 +19,8 @@ h1 {
 
 h2 {
   color: #2b2424;
-  font-family: "Raleway", sans-serif;
-  font-size: min(4vw, 32px);
+  font-family: "San Francisco", sans-serif;
+  font-size: min(4vw, 24px);
   font-weight: 800;
   line-height: 36px;
   margin: 0 0 24px;
@@ -21,7 +29,7 @@ h2 {
 
 p {
   color: #1c1c1c;
-  font-family: "Raleway", sans-serif;
+  font-family: "San Francisco", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 32px;

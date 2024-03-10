@@ -28,6 +28,8 @@ export class CamPageComponent {
   isDetecting: boolean = false;
   intervalId: any;
 
+  errorMessage: string | null = null;
+
   async ngOnInit() {
     await this.createModel();
   }
@@ -40,22 +42,30 @@ export class CamPageComponent {
   }
 
   async initCam() {
-    this.videoRef = document.getElementById('video');
-    this.videoRef.style.transform = 'scaleX(-1)';
+    try {
+      this.videoRef = document.getElementById('video');
+      this.videoRef.style.transform = 'scaleX(-1)';
 
-    this.canvas = document.getElementById('canvas');
-    this.ctx = this.canvas.getContext('2d');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+      this.canvas = document.getElementById('canvas');
+      this.ctx = this.canvas.getContext('2d');
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    navigator.mediaDevices
-      .getUserMedia({ video: true, audio: false })
-      .then((stream) => {
-        this.stream = stream;
-        this.videoRef.srcObject = stream;
-      })
-      .catch((err) => {
-        console.error('Error accessing webcam:', err);
-      });
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: false })
+        .then((stream) => {
+          this.stream = stream;
+          this.videoRef.srcObject = stream;
+        })
+        .catch((err) => {
+          console.error('Error accessing webcam:', err);
+          this.errorMessage =
+            'Webcam access error. Check connection and permissions. Stop and Retry.';
+        });
+    } catch (error) {
+      console.error('Error in initCam:', error);
+      this.errorMessage =
+        'Something went wrong while initializing the webcam. Please stop and retry.';
+    }
   }
 
   async createModel() {

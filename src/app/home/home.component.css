@@ -39,6 +39,14 @@
   margin-top: 250px;
 }
 
+@font-face {
+  font-family: "San Francisco";
+  font-style: normal;
+  font-weight: 400;
+  src: local(".SFNSText-Regular"), local(".HelveticaNeueDeskInterface-Regular"),
+    local(".LucidaGrandeUI"), local("Arial");
+}
+
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -55,9 +63,9 @@
   align-items: center;
   padding: 5px 30px;
   text-decoration: none;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 30px;
+  font-family: "San Francisco", sans-serif;
+  font-weight: 300;
+  font-size: 26px;
   color: var(--color-text);
   background: var(--color-background);
   transition: 1s;

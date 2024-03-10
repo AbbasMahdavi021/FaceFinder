@@ -4,6 +4,12 @@
 
     <div class="loader" *ngIf="isLoading"></div>
 
+    <div *ngIf="errorMessage" class="error-message">
+      <h2>
+        {{ errorMessage }}
+      </h2>
+    </div>
+
     <div>
       <video
         #videoElement
@@ -27,7 +33,7 @@
     Begin
   </button>
 
-  <label *ngIf="showVideo" class="toggle-switch">
+  <label *ngIf="showVideo && !errorMessage" class="toggle-switch">
     <input
       type="checkbox"
       [(ngModel)]="isDetecting"
