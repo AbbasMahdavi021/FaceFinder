@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="arrow-box" *ngIf="!isLoading && !showVideo">
+    <a href="/">
+      <div class="arrow-left"></div>
+    </a>
+  </div>
+
   <div class="feed">
     <img src="assets/cam.png" alt="cam-logo" *ngIf="!isLoading && !showVideo" />
 
