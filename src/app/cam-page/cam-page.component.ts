@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,6 +15,8 @@ import * as faceDetection from '@tensorflow-models/face-detection';
   styleUrl: './cam-page.component.css',
 })
 export class CamPageComponent {
+  constructor(private router: Router) {}
+
   showVideo: boolean = false;
   videoRef: any;
   stream: MediaStream | null = null;
@@ -29,6 +32,10 @@ export class CamPageComponent {
   intervalId: any;
 
   errorMessage: string | null = null;
+
+  switchImage() {
+    this.router.navigate(['/image']);
+  }
 
   async ngOnInit() {
     await this.createModel();
@@ -128,7 +135,7 @@ export class CamPageComponent {
         // Draw the main face box
         this.ctx.beginPath();
         this.ctx.lineWidth = 4;
-        this.ctx.strokeStyle = '#49bd0f';
+        this.ctx.strokeStyle = '#49ae16';
         this.ctx.rect(
           pred.box.xMin,
           pred.box.yMin,

@@ -1,8 +1,12 @@
 <div class="container">
-  <div class="arrow-box" *ngIf="!isLoading && !showVideo">
-    <a href="/">
-      <div class="arrow-left"></div>
-    </a>
+  <div class="miniNav">
+    <div class="arrow-box" *ngIf="!isLoading && !showVideo">
+      <a href="/">
+        <div class="arrow-left"></div>
+      </a>
+    </div>
+    <button class="button3">Webcam Detection</button>
+    <button class="button2" (click)="switchImage()">Image Detection</button>
   </div>
 
   <div class="feed">
@@ -35,7 +39,11 @@
     ></canvas>
   </div>
 
-  <button (click)="startCamera()" *ngIf="!isLoading && !showVideo">
+  <button
+    class="button1"
+    (click)="startCamera()"
+    *ngIf="!isLoading && !showVideo"
+  >
     Begin
   </button>
 
@@ -53,5 +61,7 @@
     </div>
   </label>
 
-  <button (click)="stopCamera()" id="red" *ngIf="showVideo">Stop</button>
+  <button class="button1" (click)="stopCamera()" id="red" *ngIf="showVideo">
+    Stop
+  </button>
 </div>

@@ -11,6 +11,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'faceDetect';
+  title = 'FaceFinder';
   desc = 'A Test App';
 }
