@@ -21,3 +21,6 @@ This web application captures an image feed from the user's webcam and performs 
 - TensorFlow.js
 - Media Pipe
 
+## Start App:
+npm I
+ng serve
